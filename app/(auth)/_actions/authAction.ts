@@ -48,7 +48,7 @@ export const loginAction = async (
       maxAge:60*60*24,
       sameSite:'lax'
     });
-    redirect('/dashboard');
+    redirect('/');
   }
 
   return result;

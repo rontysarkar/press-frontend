@@ -21,6 +21,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { logout } from "@/service/logout"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 
 type IUser = {
@@ -63,10 +64,13 @@ const navLinks = [
 
 export function Navbar({user}:NavbarProps) {
 
+  const router = useRouter();
+
   const handleUserMenuAction = (action:string) =>{
     if(action === 'logout'){
       logout();
-      toast.success('Logout Successfully')
+      // toast.success('Logout Successfully')
+      router.push('/login')
     }
   }
   

@@ -2,6 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers"
+import { redirect } from "next/navigation";
 
 export const logout = async()=>{
     const cookieStore = await cookies();
@@ -10,4 +11,5 @@ export const logout = async()=>{
     cookieStore.delete('refreshToken');
 
     revalidateTag('my-profile','max');
+    redirect('/login')
 }
